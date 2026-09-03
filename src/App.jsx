@@ -1,14 +1,20 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Links from "./components/Links";
 import Works from "./components/Works";
+
+function Home() {
+  return <main>YAY</main>;
+}
 
 function App() {
   return (
-    <main>
+    <BrowserRouter>
       <Header />
-      <Links />
-      <Works />
-    </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/works" element={<Works />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
