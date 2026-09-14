@@ -149,7 +149,11 @@ header a:hover {
 main {
   width: min(1200px, 100%);
   margin: 0 auto;
-  padding: 90px 40px;
+  padding: 3rem 2rem;
+}
+
+main img {
+  max-width: 100%;
 }
 
 /* Works */
