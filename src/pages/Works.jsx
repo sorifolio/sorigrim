@@ -32,7 +32,7 @@ function Works() {
             <small>{works.year_month}</small>
             <div>{works.description}</div>
           </div>
-          <img src={works.image_url} alt="" />
+          <img src={`${import.meta.env.BASE_URL}${works.image_url}`} alt="" />
         </section>
       ))}
     </main>

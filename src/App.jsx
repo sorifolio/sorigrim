@@ -13,7 +13,7 @@ function App() {
     setTheme(darkMode ? "dark" : "light");
   }, [darkMode]);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <Routes>
         <Route path="/" element={<Home />} />
