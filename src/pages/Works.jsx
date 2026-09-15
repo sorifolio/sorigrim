@@ -24,17 +24,18 @@ function Works() {
   }
 
   return (
-    <section>
+    <main>
       {works.map((works) => (
-        <div key={works.id}>
+        <section key={works.id}>
           <div className="title">
             <h2>{works.title}</h2>
-            <small>{works.year}</small>
+            <small>{works.year_month}</small>
             <div>{works.description}</div>
           </div>
-        </div>
+          <img src={works.image_url} alt="" />
+        </section>
       ))}
-    </section>
+    </main>
   );
 }
 
