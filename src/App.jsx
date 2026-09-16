@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Works from "./pages/Works";
@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/works" replace />} />
         <Route path="/works" element={<Works />} />
         <Route path="/shop" element={<Shop />} />
       </Routes>

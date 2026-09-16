@@ -14,6 +14,10 @@ body.dark {
   --border: #2a2a2a;
   --card-bg: #1c1c1c;
   --header-bg: rgba(17, 17, 17, 0.9);
+
+  main section {
+    background-color: #232629;
+  }
 }
 
 * {
@@ -21,8 +25,11 @@ body.dark {
 }
 
 html,
-body {
-  margin: 0;
+body,
+h1,
+h2,
+h3 {
+  margin: 0 !important;
   padding: 0;
 }
 
@@ -150,21 +157,37 @@ main {
   width: min(1200px, 100%);
   margin: 0 auto;
   padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+main .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 main img {
   max-width: 100%;
+  max-height: 86vh;
+  margin: 0 auto;
 }
 
 /* Works */
 
-.works h2 {
-  margin: 0 0 60px;
+.works section {
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-  font-size: clamp(48px, 8vw, 100px);
+.works h3 {
+  margin: 0 0 1rem;
+  font-size: clamp(18px, 8vw, 24px);
   font-weight: 600;
-  line-height: 0.9;
-  letter-spacing: -5px;
 }
 
 .work-grid {

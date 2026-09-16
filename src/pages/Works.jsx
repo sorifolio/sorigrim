@@ -9,7 +9,10 @@ function Works() {
   }, []);
 
   async function getWorks() {
-    const { data, error } = await supabase.from("works").select("*");
+    const { data, error } = await supabase
+      .from("works")
+      .select("*")
+      .order("id", { ascending: false });
 
     console.log("data:", data);
     console.log("error:", error);
@@ -24,15 +27,15 @@ function Works() {
   }
 
   return (
-    <main>
+    <main className="works">
       {works.map((works) => (
         <section key={works.id}>
           <div className="title">
-            <h2>{works.title}</h2>
+            <h3>{works.title}</h3>
             <small>{works.year_month}</small>
-            <div>{works.description}</div>
           </div>
-          <img src={`${import.meta.env.BASE_URL}${works.image_url}`} alt="" />
+          <div>{works.description}</div>
+          <img src={works.image_url} alt="" loading="lazy" decoding="async" />
         </section>
       ))}
     </main>
