@@ -162,16 +162,42 @@ main {
   gap: 1.5rem;
 }
 
-main .title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+main {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10vw;
 
-main img {
-  max-width: 100%;
-  max-height: 86vh;
-  margin: 0 auto;
+    a {
+      font-size: clamp(16px, 2vw, 20px);
+    }
+  }
+  img {
+    width: 100%;
+    aspect-ratio: 1.1/1;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      margin: 0;
+      font-size: 14px;
+    }
+  }
 }
 
 /* Works */
@@ -233,6 +259,26 @@ main img {
 
     font-size: 13px;
     color: var(--sub-text);
+  }
+}
+
+.etsy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  > a {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 4 - 0.75rem);
+    align-items: center;
+    gap: 1rem;
+    background-color: white;
+    padding: 0.5rem;
+
+    strong {
+      font-size: 13px;
+    }
   }
 }
 

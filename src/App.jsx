@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Works from "./pages/Works";
 import Shop from "./pages/Shop";
+import Etsy from "./pages/Etsy";
+import Products from "./pages/Products";
 import { getInitialTheme, setTheme } from "./utils/theme";
 
 function App() {
@@ -18,7 +20,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/works" replace />} />
         <Route path="/works" element={<Works />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop" element={<Shop />}>
+          <Route index element={<Etsy />} />
+          <Route path="products" element={<Products />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

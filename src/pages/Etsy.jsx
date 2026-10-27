@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
-function EtsyProducts() {
+function Etsy() {
   const [etsyProducts, setEtsyProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,8 +16,6 @@ function EtsyProducts() {
 
       const data = await response.json();
 
-      console.log("Etsy data:", data);
-
       if (!response.ok) {
         console.error(data);
         return;
@@ -33,41 +30,31 @@ function EtsyProducts() {
   }
 
   if (loading) {
-    return <main>Loading...</main>;
+    return <section>Loading...</section>;
   }
 
   return (
-    <main>
-      <header>
-        <Link to="/shop" className="is-active">
-          Etsy
-        </Link>
-        <Link to="/shop/products">Products</Link>
-      </header>
+    <section className="etsy">
+      {etsyProducts.map((etsy) => (
+        <a
+          href={etsy.url}
+          key={etsy.listing_id}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src={etsy.images?.[0]?.url_570xN} alt={etsy.title} />
+          <div className="title">
+            <h2>{etsy.title}</h2>
+            <p>{etsy.description}</p>
+          </div>
 
-      <section>
-        {etsyProducts.map((etsy) => (
-          <a
-            href={etsy.url}
-            key={etsy.listing_id}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={etsy.images?.[0]?.url_170x135} alt={etsy.title} />
-            <div className="title">
-              <h2>{etsy.title}</h2>
-              <div>{etsy.description}</div>
-            </div>
-
-            <strong>
-              {etsy.price.amount / etsy.price.divisor}{" "}
-              {etsy.price.currency_code}
-            </strong>
-          </a>
-        ))}
-      </section>
-    </main>
+          <strong>
+            {etsy.price.amount / etsy.price.divisor} {etsy.price.currency_code}
+          </strong>
+        </a>
+      ))}
+    </section>
   );
 }
 
-export default EtsyProducts;
+export default Etsy;
