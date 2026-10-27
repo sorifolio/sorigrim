@@ -1,0 +1,37 @@
+[
+  {
+    "id": 0,
+    "title": "제주 섬",
+    "year_month": "2025.07",
+    "description": "제주 풍경을 담아 보았습니다.",
+    "image_url": "/images/jeju.jpg"
+  },
+  {
+    "id": 1,
+    "title": "레트로 해변",
+    "year_month": "2025.09",
+    "description": "레트로 해변",
+    "image_url": "/images/retro.jpg"
+  },
+  {
+    "id": 2,
+    "title": "레트로 해변",
+    "year_month": "2025.09",
+    "description": "레트로 해변",
+    "image_url": "/images/retro.jpg"
+  },
+  {
+    "id": 3,
+    "title": "쌍검대무",
+    "year_month": "2025.12",
+    "description": "쌍검대무",
+    "image_url": "/images/shinyoonbok.jpg"
+  },
+  {
+    "id": 4,
+    "title": "보리와 산호",
+    "year_month": "2026.02",
+    "description": "보리와 산호",
+    "image_url": "/images/bori_and_sanho.jpg"
+  }
+]

@@ -1,41 +1,29 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
+import worksData from "../data/works.json";
 
 function Works() {
   const [works, setWorks] = useState([]);
 
   useEffect(() => {
-    getWorks();
+    const sortedWorks = [...worksData].sort((a, b) => b.id - a.id);
+    setWorks(sortedWorks);
   }, []);
-
-  async function getWorks() {
-    const { data, error } = await supabase
-      .from("works")
-      .select("*")
-      .order("id", { ascending: false });
-
-    console.log("data:", data);
-    console.log("error:", error);
-    if (error) {
-      console.error(error);
-      return;
-    }
-
-    setWorks(data);
-
-    return;
-  }
 
   return (
     <main className="works">
-      {works.map((works) => (
-        <section key={works.id}>
+      {works.map((work) => (
+        <section key={work.id}>
           <div className="title">
-            <h3>{works.title}</h3>
-            <small>{works.year_month}</small>
+            <h3>{work.title}</h3>
+            <small>{work.year_month}</small>
           </div>
-          <div>{works.description}</div>
-          <img src={works.image_url} alt="" loading="lazy" decoding="async" />
+          <div>{work.description}</div>
+          <img
+            src={`${import.meta.env.BASE_URL}${work.image_url.replace(/^\//, "")}`}
+            alt={work.title}
+            loading="lazy"
+            decoding="async"
+          />
         </section>
       ))}
     </main>
