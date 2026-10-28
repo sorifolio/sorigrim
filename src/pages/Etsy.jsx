@@ -10,27 +10,23 @@ function Etsy() {
 
   async function getEtsyProducts() {
     try {
-      const response = await fetch(
-        "https://qcnzjacnjvpshdguamqz.supabase.co/functions/v1/etsy-products?action=listings",
-      );
-
+      const response = await fetch("/api/etsy");
       const data = await response.json();
 
-      if (!response.ok) {
-        console.error(data);
-        return;
-      }
-
-      setEtsyProducts(data.listings || []);
+      setEtsyProducts(data.results || []);
     } catch (error) {
-      console.error(error);
+      console.error("Etsy 상품 조회 오류:", error);
     } finally {
       setLoading(false);
     }
   }
 
   if (loading) {
-    return <section>Loading...</section>;
+    return (
+      <section className="loading">
+        <div className="loader"></div>
+      </section>
+    );
   }
 
   return (
@@ -42,7 +38,16 @@ function Etsy() {
           target="_blank"
           rel="noreferrer"
         >
-          <img src={etsy.images?.[0]?.url_570xN} alt={etsy.title} />
+          <div className="image">
+            <img
+              src={
+                etsy.images?.[0]?.url_570xN ||
+                etsy.images?.[0]?.url_fullxfull ||
+                ""
+              }
+              alt={etsy.title}
+            />
+          </div>
           <div className="title">
             <h2>{etsy.title}</h2>
             <p>{etsy.description}</p>

@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 function Shop() {
   return (
     <main className="shop">
-      <header>
+      <header className="tabs">
         <NavLink to="/shop" end>
           Etsy
         </NavLink>
